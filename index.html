@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>Adding Machine</title>
+		<link rel="icon" type="image/x-icon" href="add.png">
+		<link rel="stylesheet" href="index.css"/>
+		<script src="index.js"></script>
+	</head>
+	<body onload="onLoad()">
+		<div id="maincontainer">
+			<div id="adderContainer">
+				<div id="adderTable">
+				</div>
+				<div id="adderTotal">
+					<span>Total:</span>
+					<span id="totalTxt">123.00</span>
+				</div>
+			</div>
+			<div id="inputContainer">
+				<div id="inputScreen"> 
+				</div>
+				<div id="keyPad">
+					<div class="keyNum" onclick="onClear()">CLR</div>
+					<div class="keyNum">/</div>
+					<div class="keyNum">*</div>
+					<div class="keyNum">-</div>
+					<div class="keyNum" onclick="onClickNum(7)">7</div>
+					<div class="keyNum" onclick="onClickNum(8)">8</div>
+					<div class="keyNum" onclick="onClickNum(9)">9</div>
+					<div class="keyNum plusKey">+</div>
+					<div class="keyNum" onclick="onClickNum(4)">4</div>
+					<div class="keyNum" onclick="onClickNum(5)">5</div>
+					<div class="keyNum" onclick="onClickNum(6)">6</div>
+					<div class="keyNum" onclick="onClickNum(1)">1</div>
+					<div class="keyNum" onclick="onClickNum(2)">2</div>
+					<div class="keyNum" onclick="onClickNum(3)">3</div>
+					<div class="keyNum enterKey" onclick="onEnter()">Enter</div>
+					<div class="keyNum zeroKey" onclick="onClickNum(0)">0</div>
+					<div class="keyNum">.</div>
+				</div>				
+			</div>
+		</div>
+		<p style="display: none;">
+			TODOs:
+			• Comma number separator
+			• Modal Dialog for showing saved values
+			• Save button
+		</p>
+	</body>
+</html>

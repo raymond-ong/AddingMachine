@@ -1,0 +1,105 @@
+body {
+	background-color: #eed;
+}
+
+#maincontainer {
+	border: 0px solid red;
+	margin: 10px;
+	display: flex;
+	font-family: sans-serif;	
+}
+
+#adderContainer {
+	flex: 1;
+	min-width: 300px;
+}
+
+#inputContainer {
+	flex: 1;
+	min-width: 250px;
+}
+
+#inputScreen {
+	border: 2px solid lightgrey;
+	border-radius: 10px;
+	min-height: 30px;
+	text-align: right;
+	padding: 5px;
+	font-family: Courier New;
+	font-size: 30px;
+	font-weight: bold;
+	background-color: #9b9;
+}
+
+#keyPad {	
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;	
+	font-weight: 550;
+	margin-top: 10px;
+}
+
+.keyNum {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	border: 1px solid dimgray;
+	border-radius: 5px;
+	margin: 5px;
+	padding: 5px;
+	text-align: center;
+	background-color: lightgrey;
+	cursor: pointer;
+}
+
+.keyNum:active {    
+    background-color: lightsteelblue;
+}
+
+.plusKey {
+	grid-row-start: 2;
+	grid-row-end: 4;
+	grid-column-start: 4;
+	grid-column-end: 4;
+}
+
+.enterKey {
+	grid-row-start: 4;
+	grid-row-end: 6;
+	grid-column-start: 4;
+	grid-column-end: 4;
+}
+
+.zeroKey {
+	grid-row-start: 5;
+	grid-row-end: 6;
+	grid-column-start: 1;
+	grid-column-end: 3;	
+}
+
+#adderContainer {
+	border: 1px solid gray;
+	border-radius: 5px;
+	margin-right: 10px;
+	position: relative;
+	padding: 10px;
+}
+
+#adderTotal {
+	position: absolute;
+	bottom: 5;
+	left: 10;
+	font-family: Courier New;
+	font-size: 30px;
+	font-weight: bold;
+	background-color: #5e5;
+	padding: 5px 10px 5px 10px;
+	border-radius: 5px;
+	width: calc(100% - 40px);
+	display: flex;
+}
+
+#adderTable {
+	border: 1px solid blue;
+}
+
+#totalTxt {
+	margin-left: auto;
+}
