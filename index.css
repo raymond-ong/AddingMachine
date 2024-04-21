@@ -1,17 +1,28 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
 	background-color: #eed;
 }
 
 #maincontainer {
-	border: 0px solid red;
+	border: 1px solid red;
 	margin: 10px;
 	display: flex;
 	font-family: sans-serif;	
+    max-height: 100vh;
+    overflow: auto;	
 }
 
 #adderContainer {
 	flex: 1;
 	min-width: 300px;
+	box-sizing: border-box;
+	max-height: 100%;
 }
 
 #inputContainer {
@@ -22,13 +33,13 @@ body {
 #inputScreen {
 	border: 2px solid lightgrey;
 	border-radius: 10px;
-	min-height: 30px;
 	text-align: right;
 	padding: 5px;
 	font-family: Courier New;
 	font-size: 30px;
 	font-weight: bold;
 	background-color: #9b9;
+	min-height: 50px;
 }
 
 #keyPad {	
@@ -47,6 +58,12 @@ body {
 	text-align: center;
 	background-color: lightgrey;
 	cursor: pointer;
+	min-height: 40px;
+
+	display: flex;
+  	justify-content: center;
+  	align-content: center;
+  	flex-direction: column;
 }
 
 .keyNum:active {    
@@ -80,26 +97,77 @@ body {
 	margin-right: 10px;
 	position: relative;
 	padding: 10px;
+	display: flex;
+	flex-direction: column;
 }
 
-#adderTotal {
+/*
 	position: absolute;
 	bottom: 5;
 	left: 10;
+*/
+
+#adderTotal {
+	margin-top: auto;
 	font-family: Courier New;
 	font-size: 30px;
 	font-weight: bold;
 	background-color: #5e5;
-	padding: 5px 10px 5px 10px;
+	padding: 10px;
 	border-radius: 5px;
-	width: calc(100% - 40px);
+	width: 100%;
 	display: flex;
 }
 
-#adderTable {
-	border: 1px solid blue;
+
+#totalTxt {	
+	margin-left: auto;
 }
 
-#totalTxt {
-	margin-left: auto;
+#tableContainer {
+	padding: 0px;
+}
+
+#tblAdder
+{
+	border-collapse: collapse;
+	font-family: Courier New;
+	font-size: 18px;
+	width: 100%;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+#thNum {
+	width: 50px;
+	text-align: left;
+}
+
+#thAmount {
+	text-align: center;
+}
+
+.tblRow{
+
+}
+
+.tblRow td, .tblRow th{
+	border: 1px solid lightgrey;
+	padding: 5px;
+}
+
+.tblRow th{
+	background-color: #bcd;
+}
+
+.tdAmount {
+	text-align: right;
+}
+
+.tblRow:nth-child(even) {
+  background-color: #dedede;
+}
+
+.amtCell {
+	text-align: right;
 }
