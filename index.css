@@ -10,24 +10,32 @@ body {
 }
 
 #maincontainer {
-	border: 1px solid red;
-	margin: 10px;
+	border: 0px solid red;
+	padding: 10px;
 	display: flex;
 	font-family: sans-serif;	
-    max-height: 100vh;
-    overflow: auto;	
+    height: calc(100vh - 20px);	
 }
 
 #adderContainer {
 	flex: 1;
 	min-width: 300px;
-	box-sizing: border-box;
-	max-height: 100%;
+	box-sizing: border-box;	
+	border: 1px solid blue;
+	
+	height: 100%;
+	position: absolute;
+	top: 0;
+  	bottom: 0;
+  	left: 0;
+  	overflow-y: scroll;	
 }
 
 #inputContainer {
 	flex: 1;
 	min-width: 250px;
+	height: 100%;
+	border: 0px solid green;
 }
 
 #inputScreen {
@@ -40,6 +48,7 @@ body {
 	font-weight: bold;
 	background-color: #9b9;
 	min-height: 50px;
+
 }
 
 #keyPad {	
