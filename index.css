@@ -86,7 +86,7 @@ body {
 }
 
 .enterKey {
-	grid-row-start: 4;
+	grid-row-start: 2;
 	grid-row-end: 6;
 	grid-column-start: 4;
 	grid-column-end: 4;
@@ -181,4 +181,8 @@ body {
 
 .amtCell {
 	text-align: right;
+}
+
+.hidden {
+	visibility: hidden;
 }

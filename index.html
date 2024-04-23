@@ -14,46 +14,13 @@
 							<th id="thNum">#</td>
 							<th id="thAmount">Amount</td>
 						</tr>
-						<tbody>
-							<tr  class="tblRow"><td>1</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>2</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>1</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>2</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>1</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>2</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>991</td><td class="amtCell">200</td></tr>							
- 							<tr  class="tblRow"><td>2</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>1</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>2</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>991</td><td class="amtCell">200</td></tr>	
-							<tr  class="tblRow"><td>1</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>2</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>1</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>2</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>1</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>2</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>991</td><td class="amtCell">200</td></tr>							
-							<tr  class="tblRow"><td>2</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>1</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>2</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>991</td><td class="amtCell">200</td></tr>								
-							<tr  class="tblRow"><td>1</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>2</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>1</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>2</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>1</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>2</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>991</td><td class="amtCell">200</td></tr>							
-							<tr  class="tblRow"><td>2</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>1</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>2</td><td class="amtCell">200</td></tr>
-							<tr  class="tblRow"><td>999</td><td class="amtCell">200</td></tr>
+						<tbody id='tblBody'>
 						</tbody>
 					</table>
 				</div>
 				<div id="adderTotal">
 					<span>Total:</span>
-					<span id="totalTxt">123.00</span>
+					<span id="totalTxt"></span>
 				</div>
 			</div>
 			<div id="inputContainer">
@@ -61,13 +28,13 @@
 				</div>
 				<div id="keyPad">
 					<div class="keyNum" onclick="onClear()">CLR</div>
-					<div class="keyNum">/</div>
-					<div class="keyNum">*</div>
-					<div class="keyNum">-</div>
+					<div class="keyNum hidden">/</div>
+					<div class="keyNum hidden">*</div>
+					<div class="keyNum hidden">-</div>
 					<div class="keyNum" onclick="onClickNum(7)">7</div>
 					<div class="keyNum" onclick="onClickNum(8)">8</div>
 					<div class="keyNum" onclick="onClickNum(9)">9</div>
-					<div class="keyNum plusKey">+</div>
+					<div class="keyNum plusKey hidden">+</div>
 					<div class="keyNum" onclick="onClickNum(4)">4</div>
 					<div class="keyNum" onclick="onClickNum(5)">5</div>
 					<div class="keyNum" onclick="onClickNum(6)">6</div>
@@ -76,7 +43,7 @@
 					<div class="keyNum" onclick="onClickNum(3)">3</div>
 					<div class="keyNum enterKey" onclick="onEnter()">Enter</div>
 					<div class="keyNum zeroKey" onclick="onClickNum(0)">0</div>
-					<div class="keyNum">.</div>
+					<div class="keyNum" onclick="onClickDot()">.</div>
 				</div>				
 			</div>
 		</div>
