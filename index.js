@@ -5,17 +5,20 @@ window.arrNums = [];
 const onLoad = () => {
 	window.elRefs.inputScreen = document.getElementById('inputScreen');
 	window.elRefs.tblBody = document.getElementById('tblBody');
-	window.elRefs.totalTxt = document.getElementById('totalTxt');	
+	window.elRefs.totalTxt = document.getElementById('totalTxt');
+	window.elRefs.btnClearInputScreen = document.getElementById('btnClearInputScreen');
 }
 
 const onClearInput = () => {
 	window.inputNumStr = "";
 	window.elRefs.inputScreen.innerText = "";
+	window.elRefs.btnClearInputScreen.classList.add("hidden");
 }
 
 const onClickNum = (num) => {
 	window.inputNumStr += num;
 	window.elRefs.inputScreen.innerText = numberWithCommas(window.inputNumStr);
+	window.elRefs.btnClearInputScreen.classList.remove("hidden");
 }
 
 const onClickDot = () => {
@@ -31,7 +34,7 @@ const numberWithCommas = (x) => {
 
 const onEnter = () => {
 	// Add new Number
-	var newNum = parseFloat(window.elRefs.inputScreen.innerText);
+	var newNum = parseFloat(window.inputNumStr);
 	window.arrNums.push(newNum);	
 	addNewRow(newNum, window.arrNums.length);
 	onClearInput();

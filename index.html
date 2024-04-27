@@ -7,7 +7,11 @@
 	</head>
 	<body onload="onLoad()">
 		<div id="maincontainer">
-			<div id="adderContainer">
+			<div id="computationsContainer">
+				<div id="toolbarComputations">
+					<div id="btnClearComputations" class="btnBase"><img src="reload_48.png" height="21px" width="25px"></img>重新</div>
+				</div>
+			
 				<div id="tableContainer">
 					<table id="tblAdder">
 						<tr class="tblRow">
@@ -15,6 +19,8 @@
 							<th id="thAmount">Amount</td>
 						</tr>
 						<tbody id='tblBody'>
+							<tr class="tblRow"><td>1</td><td class="amtCell">25</td></tr>
+							<tr class="tblRow"><td>2</td><td class="amtCell">50</td></tr>
 						</tbody>
 					</table>
 				</div>
@@ -24,26 +30,30 @@
 				</div>
 			</div>
 			<div id="inputContainer">
-				<div id="inputScreen"> 
+				<div id="inputScreenContainer">
+					<div id="btnClearInputScreen" class="hidden" onclick="onClearInput()">⛔</div>
+					<div id="inputScreen"></div>
 				</div>
 				<div id="keyPad">
-					<div class="keyNum" onclick="onClear()">CLR</div>
+					<!-- Comment out first row
+					<div class="keyNum hidden" onclick="onClearInput()">CLR</div>
 					<div class="keyNum hidden">/</div>
 					<div class="keyNum hidden">*</div>
 					<div class="keyNum hidden">-</div>
-					<div class="keyNum" onclick="onClickNum(7)">7</div>
-					<div class="keyNum" onclick="onClickNum(8)">8</div>
-					<div class="keyNum" onclick="onClickNum(9)">9</div>
-					<div class="keyNum plusKey hidden">+</div>
-					<div class="keyNum" onclick="onClickNum(4)">4</div>
-					<div class="keyNum" onclick="onClickNum(5)">5</div>
-					<div class="keyNum" onclick="onClickNum(6)">6</div>
-					<div class="keyNum" onclick="onClickNum(1)">1</div>
-					<div class="keyNum" onclick="onClickNum(2)">2</div>
-					<div class="keyNum" onclick="onClickNum(3)">3</div>
-					<div class="keyNum enterKey" onclick="onEnter()">Enter</div>
-					<div class="keyNum zeroKey" onclick="onClickNum(0)">0</div>
-					<div class="keyNum" onclick="onClickDot()">.</div>
+					-->
+					<div class="btnBase keyNum" onclick="onClickNum(7)">7</div>
+					<div class="btnBase keyNum" onclick="onClickNum(8)">8</div>
+					<div class="btnBase keyNum" onclick="onClickNum(9)">9</div>
+					<div class="btnBase keyNum plusKey hidden">+</div>
+					<div class="btnBase keyNum" onclick="onClickNum(4)">4</div>
+					<div class="btnBase keyNum" onclick="onClickNum(5)">5</div>
+					<div class="btnBase keyNum" onclick="onClickNum(6)">6</div>
+					<div class="btnBase keyNum" onclick="onClickNum(1)">1</div>
+					<div class="btnBase keyNum" onclick="onClickNum(2)">2</div>
+					<div class="btnBase keyNum" onclick="onClickNum(3)">3</div>
+					<div class="btnBase keyNum enterKey" onclick="onEnter()">Enter</div>
+					<div class="btnBase keyNum zeroKey" onclick="onClickNum(0)">0</div>
+					<div class="btnBase keyNum" onclick="onClickDot()">.</div>
 				</div>				
 			</div>
 		</div>

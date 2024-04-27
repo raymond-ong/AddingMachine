@@ -9,6 +9,10 @@ body {
 	background-color: #eed;
 }
 
+.btnBase {
+	user-select: none;
+}
+
 #maincontainer {
 	border: 0px solid red;
 	padding: 10px;
@@ -17,7 +21,7 @@ body {
     height: calc(100vh - 20px);	
 }
 
-#adderContainer {
+#computationsContainer {
 	flex: 1;
 	min-width: 300px;
 	box-sizing: border-box;	
@@ -28,6 +32,30 @@ body {
 	top: 0;
   	bottom: 0;
   	left: 0;
+}
+
+#toolbarComputations {
+	display: flex;
+}
+
+#btnClearComputations {
+	border: 1px solid #333;
+	border-radius: 5px;
+	background-color: #555;
+	color: white;
+	padding: 5px 8px 5px 8px;
+	cursor: pointer;
+	font-size: 22px;
+}
+
+#btnClearInputScreen {
+	position: absolute;
+	margin: 15px;
+	cursor: pointer;
+}
+
+.emoji {
+
 }
 
 #inputContainer {
@@ -86,20 +114,20 @@ body {
 }
 
 .enterKey {
-	grid-row-start: 2;
+	grid-row-start: 1;
 	grid-row-end: 6;
 	grid-column-start: 4;
 	grid-column-end: 4;
 }
 
 .zeroKey {
-	grid-row-start: 5;
-	grid-row-end: 6;
+	grid-row-start: 4;
+	grid-row-end: 5;
 	grid-column-start: 1;
 	grid-column-end: 3;	
 }
 
-#adderContainer {
+#computationsContainer {
 	border: 1px solid gray;
 	border-radius: 5px;
 	margin-right: 10px;
@@ -137,6 +165,7 @@ body {
 	padding: 0px;
 	max-height: calc(100% - 50px);
 	overflow: auto;
+	margin-top: 10px;
 }
 
 #tblAdder
@@ -144,6 +173,7 @@ body {
 	border-collapse: collapse;
 	font-family: Courier New;
 	font-size: 18px;
+	font-weight: 600;
 	width: 100%;
 	border-radius: 5px;
 	margin-bottom: 10px;
