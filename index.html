@@ -9,18 +9,19 @@
 		<div id="maincontainer">
 			<div id="computationsContainer">
 				<div id="toolbarComputations">
-					<div id="btnClearComputations" class="btnBase"><img src="reload_48.png" height="21px" width="25px"></img>重新</div>
+					<div id="btnClearComputations" class="btnBase" onclick="onReset()"><img src="reload_48.png" height="21px" width="25px"></img>重新</div>
 				</div>
 			
 				<div id="tableContainer">
 					<table id="tblAdder">
 						<tr class="tblRow">
-							<th id="thNum">#</td>
-							<th id="thAmount">Amount</td>
+							<th id="thNum">#</th>							
+							<th id="thAction"></th>
+							<th id="thAmount">Amount</th>
 						</tr>
 						<tbody id='tblBody'>
-							<tr class="tblRow"><td>1</td><td class="amtCell">25</td></tr>
-							<tr class="tblRow"><td>2</td><td class="amtCell">50</td></tr>
+<!-- 							<tr id="row0" class="tblRow rowVal" onclick="onEdit(0)"><td>1</td><td onclick="onDeleteRow(0)">❌</td><td class="amtCell">25</td></tr>
+							<tr id="row1" class="tblRow rowVal" onclick="onEdit(1)"><td>2</td><td onclick="onDeleteRow(1)">❌</td><td class="amtCell">50</td></tr> -->
 						</tbody>
 					</table>
 				</div>

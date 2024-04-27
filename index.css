@@ -189,7 +189,7 @@ body {
 }
 
 .tblRow{
-
+	
 }
 
 .tblRow td, .tblRow th{
@@ -211,8 +211,17 @@ body {
 
 .amtCell {
 	text-align: right;
+	width: 100%;
 }
 
 .hidden {
 	visibility: hidden;
+}
+
+.rowVal {
+	cursor: pointer;
+}
+
+.rowEditMode {
+	background-color: yellow !important;
 }
