@@ -18,7 +18,7 @@ body {
 	padding: 10px;
 	display: flex;
 	font-family: sans-serif;	
-    height: calc(100dvh - 100px);	
+    height: calc(100vh - 50px);	
 }
 
 #computationsContainer {
@@ -87,6 +87,7 @@ body {
 
 .keyNum {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 40px;
 	border: 1px solid dimgray;
 	border-radius: 5px;
 	margin: 5px;
