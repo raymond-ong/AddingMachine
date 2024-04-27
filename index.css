@@ -18,7 +18,7 @@ body {
 	padding: 10px;
 	display: flex;
 	font-family: sans-serif;	
-    height: calc(100dvh - 20px);	
+    height: calc(100dvh - 100px);	
 }
 
 #computationsContainer {
@@ -172,8 +172,8 @@ body {
 {
 	border-collapse: collapse;
 	font-family: Courier New;
-	font-size: 22px;
-	font-weight: 700;
+	font-size: 30px;
+	font-weight: bold;
 	width: 100%;
 	border-radius: 5px;
 	margin-bottom: 10px;
