@@ -1,7 +1,7 @@
 window.elRefs = {};
 window.inputNumStr = "";
-window.arrNums = [];
-window.editingRowIndex = -1; // indicates which row being edited
+window.arrNums = {};
+window.editingRowId = null; // indicates which row being edited
 
 const onLoad = () => {
 	window.elRefs.inputScreen = document.getElementById('inputScreen');
@@ -61,19 +61,24 @@ const fixPrecision = (value, precision) => {
 }
 
 const onEnter = () => {
+	console.log('onEnter', window.inputNumStr);
+	if (!window.inputNumStr) {
+		return;
+	}
 	var newNum = parseFloat(window.inputNumStr);
 	var formattedNumStr = formatMoneyString(newNum);
 	// [A] if in Edit Mode, just edit existing items
-	if (window.editingRowIndex >=0 )
+	if (window.editingRowId)
 	{
-		window.arrNums[window.editingRowIndex] = newNum;
-		updateCalcRow(formattedNumStr, window.editingRowIndex);
-		window.editingRowIndex = -1;
+		window.arrNums[window.editingRowId] = newNum;
+		updateCalcRow(formattedNumStr, window.editingRowId);
+		window.editingRowId = null;
 	}
 	// [B] Not in Edit mode, add new Number
-	else {				
-		window.arrNums.push(newNum);	
-		addNewRow(formattedNumStr, window.arrNums.length);		
+	else {
+		let newId = uuidv4();		
+		window.arrNums[newId] = newNum;
+		addNewRow(formattedNumStr, newId);
 	}
 
 	onClearInput();
@@ -84,29 +89,29 @@ const onEnter = () => {
 }
 
 const calculateSum = () => {
-	let sumCalc = window.arrNums.reduce((currSum, x) => currSum + x, 0);
+	let sumCalc = Object.values(window.arrNums).reduce((currSum, x) => currSum + x, 0);
 	window.elRefs.totalTxt.innerHTML = formatMoneyString(sumCalc);
 }
 
-const addNewRow = (newNum, rowNum) => {	
-	let idx = rowNum - 1;
-	let newRow = `<tr id="row${idx}" class="tblRow rowVal" onclick="onEdit(${idx})">
-					<td>${rowNum}</td>
-					<td onclick="onDeleteRow(event, ${idx})">❌</td>
-					<td id="rowVal${idx}"class="amtCell">${newNum}</td>
+const addNewRow = (newNum, newId) => {
+	let numRows = Object.values(window.arrNums).length;
+	let newRow = `<tr id="row-${newId}" class="tblRow rowVal" onclick="onEdit('${newId}')">
+					<td>${numRows}</td>
+					<td onclick="onDeleteRow(event, '${newId}')">❌</td>
+					<td id="rowVal-${newId}"class="amtCell">${newNum}</td>
 				</tr>`;
 	window.elRefs.tblBody.innerHTML += newRow;
 }
 
-const updateCalcRow = (newNum, rowIdx) => {
-	let findRowEl = document.getElementById(`row${rowIdx}`);
+const updateCalcRow = (newNum, rowId) => {
+	let findRowEl = document.getElementById(`row-${rowId}`);
 	if (!findRowEl) {
 		alert('Unable to find Row HTML element to be updated');
 		return;
 	}
 	findRowEl.classList.remove('rowEditMode');
 
-	let findRowValEl = document.getElementById(`rowVal${rowIdx}`);
+	let findRowValEl = document.getElementById(`rowVal-${rowId}`);
 	if (!findRowValEl) {
 		alert('Unable to find Row HTML element to be updated');
 		return;
@@ -115,50 +120,50 @@ const updateCalcRow = (newNum, rowIdx) => {
 	findRowValEl.innerText = formatMoneyString(newNum);
 }
 
-const onDeleteRow = (e, index) => {
-	console.log("onDeleteRow", index);
+const onDeleteRow = (e, idDeleted) => {
+	console.log("onDeleteRow", idDeleted);
 	e.stopPropagation();
-	if (index >= window.arrNums.length) {
-		alert("Incorrect index to be deleted");
+	if (window.arrNums[idDeleted] === undefined) {
+		alert("Incorrect id to be deleted");
 		return;
 	}
-	let nodeRow = document.getElementById(`row${index}`);
+	let nodeRow = document.getElementById(`row-${idDeleted}`);
 	if (!nodeRow) {
 		alert("Cannot find row node to be deleted");
 		return;
 	}
 	window.elRefs.tblBody.removeChild(nodeRow);
-	window.arrNums.splice(index, 1);
+	delete window.arrNums[idDeleted];
 	calculateSum();
 }
 
-const onEdit = (index) => {
-	console.log("onEdit", index);
+const onEdit = (editingRowId) => {
+	console.log("onEdit", editingRowId);
 	// A. Clear any previous edit mode first
-	if (window.editingRowIndex >= 0) {
-		let rowElPrev = document.getElementById('row' + window.editingRowIndex);
+	if (window.editingRowId) {
+		let rowElPrev = document.getElementById('row-' + window.editingRowId);
 		rowElPrev.classList.remove('rowEditMode');
 	}
 
 	// B. Set new edit mode
-	let rowEl = document.getElementById('row' + index);
+	let rowEl = document.getElementById('row-' + editingRowId);
 	if (!rowEl) {
 		alert('Row element not found');
 		return;
 	}
 	rowEl.classList.add("rowEditMode");
-	window.editingRowIndex = index;
 
 	// C. Set InputScreen
-	if (index >= window.arrNums.length) {
+	let valFind = window.arrNums[editingRowId];
+	if (valFind === undefined) {
 		alert("Can't find edited number");
 		return;
 	}
-	let valFind = window.arrNums[index];
 	setInputScreenVal(valFind);
 
 	// D. Set the global variable
 	window.inputNumStr = valFind.toString();
+	window.editingRowId = editingRowId
 }
 
 const setInputScreenVal = (val) => {
@@ -170,8 +175,15 @@ const onReset = () => {
 	window.elRefs.inputScreen.innerText = "";
 	window.elRefs.btnClearInputScreen.classList.add('hidden');
 	window.inputNumStr = "";
-	window.arrNums = [];
-	window.editingRowIndex = -1;
+	window.arrNums = {};
+	window.editingRowId = null;
 	window.elRefs.tblBody.innerHTML = "";
 	window.elRefs.totalTxt.innerHTML = "";
+}
+
+// For generating unique id using builtin functions
+const uuidv4 = () => {
+  return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
+    (+c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +c / 4).toString(16)
+  );
 }
