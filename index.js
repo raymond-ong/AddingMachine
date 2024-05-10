@@ -78,7 +78,7 @@ const onEnter = () => {
 	else {
 		let newId = uuidv4();		
 		window.arrNums[newId] = newNum;
-		addNewRow(formattedNumStr, newId);
+		addNewRow(formattedNumStr, newId);		
 	}
 
 	onClearInput();
@@ -101,6 +101,9 @@ const addNewRow = (newNum, newId) => {
 					<td id="rowVal-${newId}"class="amtCell">${newNum}</td>
 				</tr>`;
 	window.elRefs.tblBody.innerHTML += newRow;
+	// scroll to the bottom of table
+	let lastRow = document.getElementById(`row-${newId}`);
+	lastRow.scrollIntoView({ behavior: 'smooth', block: 'end' });
 }
 
 const updateCalcRow = (newNum, rowId) => {
