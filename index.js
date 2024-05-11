@@ -146,12 +146,26 @@ const onDeleteRow = (e, idDeleted) => {
 		alert("Cannot find row node to be deleted");
 		return;
 	}
+	// If any row is in edit mode, clear it to avoid confusion for the user
+	clearEditMode();
+	
 	window.elRefs.tblBody.removeChild(nodeRow);
 	delete window.arrNums[idDeleted];
 	calculateSum();
+}
 
-	// update row #'s
-
+const clearEditMode = () => {
+	if (!window.editingRowId) {
+		return;
+	}
+	let findRowEl = document.getElementById(`row-${window.editingRowId}`);
+	if (!findRowEl) {
+		alert('Unable to clear Edit Mode of row');
+		return;
+	}
+	findRowEl.classList.remove('rowEditMode');	
+	onClearInput();
+	window.editingRowId = null;
 }
 
 const onEdit = (editingRowId) => {
