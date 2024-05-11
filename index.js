@@ -107,7 +107,7 @@ const calculateSum = () => {
 const addNewRow = (newNum, newId) => {
 	let numRows = Object.values(window.arrNums).length;
 	let newRow = `<tr id="row-${newId}" class="tblRow rowVal" onclick="onEdit('${newId}')">
-					<td>${numRows}</td>
+					<td></td>
 					<td onclick="onDeleteRow(event, '${newId}')">❌</td>
 					<td id="rowVal-${newId}"class="amtCell">${newNum}</td>
 				</tr>`;
@@ -149,6 +149,9 @@ const onDeleteRow = (e, idDeleted) => {
 	window.elRefs.tblBody.removeChild(nodeRow);
 	delete window.arrNums[idDeleted];
 	calculateSum();
+
+	// update row #'s
+
 }
 
 const onEdit = (editingRowId) => {

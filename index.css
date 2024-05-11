@@ -179,6 +179,16 @@ body {
 	width: 100%;
 	border-radius: 5px;
 	margin-bottom: 10px;
+	counter-reset: rowNumber;
+}
+
+/*Use CSS to display the row number*/
+#tblAdder tbody tr:not(.tblRowHeader) {
+    counter-increment: rowNumber;
+}
+
+#tblAdder tr td:first-child::before {
+    content: counter(rowNumber);
 }
 
 #thNum {
