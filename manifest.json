@@ -1,0 +1,25 @@
+{
+	"name": "Adding Machine",
+	"short_name": "Adding Machine",
+	"start_url": ".",
+	"background_color": "#eed",
+	"theme_color": "cyan",
+	"display": "standalone",
+	"icons": [{
+		"src": "images/add.png",
+		"sizes": "32x32",
+		"type": "image/png"
+	},
+	{
+		"src": "images/maskable_icon.png",
+		"sizes": "32x32",
+		"type": "image/png",
+		"purpose": "maskable"
+	},
+	{
+		"src": "images/splash512.png",
+		"sizes": "512x512",
+		"type": "image/png"
+	}]
+
+}

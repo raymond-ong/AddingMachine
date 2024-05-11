@@ -1,16 +1,20 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="theme-color" content="cyan">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Adding Machine</title>
-		<link rel="icon" type="image/x-icon" href="add.png">
+		<link rel="icon" type="image/x-icon" href="images/add.png">
 		<link rel="stylesheet" href="index.css"/>
+		<link rel="manifest" href="manifest.json">
+		<link rel="apple-touch-icon" href="images/add.png">
 		<script src="index.js"></script>
 	</head>
 	<body onload="onLoad()">
 		<div id="maincontainer">
 			<div id="computationsContainer">
 				<div id="toolbarComputations">
-					<div id="btnClearComputations" class="btnBase" onclick="onReset()"><img src="reload_48.png" height="21px" width="25px"></img>重新.</div>
+					<div id="btnClearComputations" class="btnBase" onclick="onReset()"><img src="images/reload_48.png" height="21px" width="25px"></img>重新.</div>
 				</div>
 			
 				<div id="tableContainer">
@@ -61,7 +65,7 @@
 		</div>
 		<p style="display: none;">
 			TODOs:
-			• Comma number separator
+			• PWA: https://www.youtube.com/watch?v=WbbAPfDVqfY
 			• Modal Dialog for showing saved values
 			• Save button
 		</p>

@@ -1,3 +1,14 @@
+if ("serviceWorker" in navigator) {
+	console.log("SW in navigator!");
+	navigator.serviceWorker.register("sw.js").then( (registration) => {
+		console.log("SW Registered!", registration);
+	})
+	.catch(err => {
+		console.log("SW Registered failed!", err);
+	})
+}
+console.log("SW check done");
+
 window.elRefs = {};
 window.inputNumStr = "";
 window.arrNums = {};
