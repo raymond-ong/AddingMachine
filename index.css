@@ -1,8 +1,11 @@
 html {
   box-sizing: border-box;
 }
+
+/* Set user-select to none for all elements so that if HTML elements are tapped for a long time, they won't be selected */
 *, *:before, *:after {
   box-sizing: inherit;
+  user-select: none;
 }
 
 body {
@@ -88,15 +91,15 @@ body {
 
 .keyNum {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 40px;
+	font-size: 50px;
 	border: 1px solid dimgray;
 	border-radius: 5px;
 	margin: 5px;
-	padding: 5px;
+	padding: 20px 5px 20px 5px;
 	text-align: center;
 	background-color: lightgrey;
 	cursor: pointer;
-	min-height: 40px;
+	min-height: 50px;
 
 	display: flex;
   	justify-content: center;
