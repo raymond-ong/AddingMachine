@@ -14,6 +14,14 @@ window.inputNumStr = "";
 window.arrNums = {};
 window.editingRowId = null; // indicates which row being edited
 
+document.addEventListener(
+	"dblclick",
+	function (event) {
+	  event.preventDefault();
+	},
+	{ passive: false }
+  );
+
 const onLoad = () => {
 	window.elRefs.inputScreen = document.getElementById('inputScreen');
 	window.elRefs.tblBody = document.getElementById('tblBody');
