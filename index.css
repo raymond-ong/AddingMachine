@@ -10,6 +10,7 @@ html {
 
 body {
 	background-color: #eed;
+	touch-action: manipulation;
 }
 
 .btnBase {
@@ -56,6 +57,10 @@ body {
 	margin: 15px;
 	cursor: pointer;
 	font-size: 30px;
+}
+
+.btnAction {
+	text-wrap: nowrap;
 }
 
 .emoji {

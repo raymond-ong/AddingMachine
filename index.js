@@ -82,7 +82,7 @@ const onEnter = () => {
 	if (window.editingRowId)
 	{
 		window.arrNums[window.editingRowId] = newNum;
-		updateCalcRow(formattedNumStr, window.editingRowId);
+		updateCalcRow(newNum, window.editingRowId);
 		window.editingRowId = null;
 	}
 	// [B] Not in Edit mode, add new Number
@@ -106,9 +106,10 @@ const calculateSum = () => {
 
 const addNewRow = (newNum, newId) => {
 	let numRows = Object.values(window.arrNums).length;
-	let newRow = `<tr id="row-${newId}" class="tblRow rowVal" ontouchstart="onEdit('${newId}')">
+	let newRow = `<tr id="row-${newId}" class="tblRow rowVal">
 					<td></td>
-					<td ontouchstart="onDeleteRow(event, '${newId}')">❌</td>
+					<td class="btnAction" ontouchstart="onDeleteRow(event, '${newId}')">❌删</td>
+					<td class="btnAction" ontouchstart="onEdit('${newId}')">✏️改</td>
 					<td id="rowVal-${newId}"class="amtCell">${newNum}</td>
 				</tr>`;
 	window.elRefs.tblBody.innerHTML += newRow;
